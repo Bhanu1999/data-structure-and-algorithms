@@ -42,8 +42,6 @@ void combination_sum(vector<int> v,vector<int> temp,int req_sum,int i){
     combination_sum(v,temp,req_sum,i+1);
     temp.push_back(v[i]);
     combination_sum(v,temp,req_sum-v[i],i);
-    return;
-
 }
 int32_t main() {
     vector<int> v{2,3,6,7};
