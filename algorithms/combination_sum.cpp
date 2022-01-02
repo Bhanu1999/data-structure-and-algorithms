@@ -45,7 +45,7 @@ void combination_sum(vector<int> v,vector<int> temp,int req_sum,int i){
 }
 int32_t main() {
     vector<int> v{2,3,6,7};
-    int req_sum=7;
+    int req_sum=8;
     vector<int> temp;
     combination_sum(v,temp,req_sum,0);
     for(auto i:ans1)
