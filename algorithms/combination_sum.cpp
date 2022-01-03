@@ -18,6 +18,7 @@ void print(int a[], int n) {
         cout << a[i] << " ";
     }
     cout << endl;
+    //default
 }
 
 void print(vector<int> a) {
