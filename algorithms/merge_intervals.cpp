@@ -38,7 +38,7 @@ vector<vector<int>> merge(vector<vector<int>>& v) {
         else
         {
             ans.push_back(v[i]);
-        }
+        }//
     }
     return ans;}
 int32_t main() {
