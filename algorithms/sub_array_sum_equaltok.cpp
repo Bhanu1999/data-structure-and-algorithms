@@ -26,8 +26,26 @@ void print(vector<int> a) {
 }
 
 int32_t main() {
-vector<int> v{1,2,3,4,5};
-vector<vector<int>> ans;
+vector<int> v{1,-1,0};
+    unordered_map<int,int> ele;
+    int k=0;
+    int count=0;
+    int sum=0;
 
+    for(int i=0;i<v.size();i++)
+    {
+        sum+=v[i];
+
+        if(sum==k)
+        {
+            count+=1;
+        }
+        if(ele.find(sum-k)!=ele.end())
+        {
+            count=count+ele[sum-k];
+        }
+        ele[sum]+=1;
+    }
+cout<<count;
 
 }
