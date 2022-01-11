@@ -29,8 +29,6 @@ int32_t main() {
     vector<int> v{3,2,1,0,4};
     int n=v.size();
     int max_reachable=0;
-    vector<bool> visited(n,false);
-    visited[0]=true;
     for(int i=0;i<n-1;i++)
     {
         max_reachable=max(max_reachable,v[i]+i);
@@ -38,8 +36,11 @@ int32_t main() {
         {
             return false;
         }
-        visited[min(v[i]+i,n-1)]=true;
     }
-    return visited[n-1];
+    if(max_reachable>=n-1)
+    {
+        return true;
+    }
+    return false;
 
 }
