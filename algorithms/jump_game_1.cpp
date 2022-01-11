@@ -30,10 +30,6 @@ int32_t main() {
     int n=v.size();
     int max_reachable=0;
     vector<bool> visited(n,false);
-    if(v[0]==0 && v.size()>1)
-    {
-        return false;
-    }
     visited[0]=true;
     for(int i=0;i<n-1;i++)
     {
@@ -42,14 +38,7 @@ int32_t main() {
         {
             return false;
         }
-        if(i+v[i]<n)
-        {
-            visited[v[i]+i]=true;
-        }
-        else if(i+v[i]>=n)
-        {
-            visited[n-1]=true;//
-        }
+        visited[min(v[i]+i,n-1)]=true;
     }
     return visited[n-1];
 
