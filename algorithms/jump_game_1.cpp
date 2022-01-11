@@ -48,7 +48,7 @@ int32_t main() {
         }
         else if(i+v[i]>=n)
         {
-            visited[n-1]=true;
+            visited[n-1]=true;//
         }
     }
     return visited[n-1];
