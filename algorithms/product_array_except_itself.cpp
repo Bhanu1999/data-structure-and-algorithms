@@ -44,7 +44,7 @@ int32_t main() {
     {
         if(i==0)
         {
-            v[i]=ans[i+1];
+            v[i]=ans[i+1];//
             continue;
         }
         if(i==v.size()-1)
