@@ -26,7 +26,23 @@ void print(vector<int> a) {
 }
 
 int32_t main() {
+vector<int> v{2,3,1,1,4};
+    int n=v.size();
+    vector<long> dp(n,INT_MAX);
+    dp[0]=0;
+    for(int i=0;i<n-1;i++)
+    {
+        int a=v[i];
+        int j=i+1;
+        a+=i;
+        while(j<n && j<=a)
+        {
+            dp[j]=min(1+dp[i],dp[j]);
+            j++;
+        }
 
+    }
+    return dp[n-1];
 
 
 }
