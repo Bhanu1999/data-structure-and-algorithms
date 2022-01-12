@@ -42,7 +42,7 @@ vector<int> v{2,3,1,1,4};
         }
 
     }
-    return dp[n-1];
+    cout<< dp[n-1];
 
 
 }
