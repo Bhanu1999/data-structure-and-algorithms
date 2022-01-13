@@ -31,6 +31,7 @@ vector<int> v{1,2,3,5};
 int i=0;
 while (i++<24)
 {
+    //
     print(v);
     next_permutation(v.begin(),v.end());
 }
