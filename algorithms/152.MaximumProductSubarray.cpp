@@ -26,7 +26,7 @@ void print(vector<int> a) {
 }
 
 int32_t main() {
-    vector<int> v{2,3,-2,4};
+    vector<int> v{2,3,-2,4};//
     int ans=v[0];
     int n=v.size();
     for(int i=0;i<n;i++)
