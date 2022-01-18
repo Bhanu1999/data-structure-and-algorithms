@@ -39,7 +39,7 @@ int32_t main() {
     {
         if(v[i]==0)
         {
-            min_ans=1;//
+            min_ans=1;////
             max_ans=1;
             continue;
         }
