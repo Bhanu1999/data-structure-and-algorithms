@@ -38,7 +38,7 @@ int32_t main() {
     vector<vector<string>> ans;
     for(auto i:ele)
     {
-        ans.push_back(i.second);
+        ans.push_back(i.second);//
     }
     for(int i=0;i<ans.size();i++)
     {
