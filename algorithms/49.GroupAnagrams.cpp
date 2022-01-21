@@ -29,7 +29,7 @@ void print(vector<int> a) {
 int32_t main() {
     vector<string> strs={"eat","tea","tan","ate","nat","bat"};
     unordered_map<string,vector<string>> ele;
-    for(int i=0;i<strs.size();i++)
+    for(int i=0;i<strs.size();i++)//
     {
         string s=strs[i];
         sort(s.begin(),s.end());
