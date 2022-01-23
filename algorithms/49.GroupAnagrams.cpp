@@ -34,7 +34,7 @@ int32_t main() {
         string s=strs[i];
         sort(s.begin(),s.end());
         ele[s].push_back(strs[i]);
-    }
+    }//
     vector<vector<string>> ans;
     for(auto i:ele)
     {
