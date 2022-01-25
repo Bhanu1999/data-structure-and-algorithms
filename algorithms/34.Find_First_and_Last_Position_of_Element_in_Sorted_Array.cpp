@@ -77,6 +77,6 @@ int32_t main() {
     vector<int> final1;
     final1[0]=lr;
     final1[1]=lm;
-   print(final1);
+   print(final1);//
 
 }
