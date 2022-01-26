@@ -28,7 +28,7 @@ void print(vector<int> a) {
 int last_search(vector<int>& v, int target,int l,int r)
 {
 
-    while(l<=r){
+    while(l<=r){//
         int mid=(l+r)/2;
         if(v[mid]<=target)
         {

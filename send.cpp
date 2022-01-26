@@ -36,10 +36,10 @@ vector<int> search(vector<char> dna1, vector<char> header1, int q)
     int d=256;
     int ind, ind1,position=0,postion2=0,head=1;
     for (ind = 0; ind < dna1.size() - 1; ind++)
-        head = (head * d) % q;
+        head = (head * d) ;
     for (ind = 0; ind < dna1.size(); ind++) {
-        position = (d * position + dna1[ind]) % q;
-        postion2 = (d * postion2 + header1[ind]) % q;
+        position = (d * position + dna1[ind]) ;
+        postion2 = (d * postion2 + header1[ind]);
     }
     for (ind = 0; ind <= header1.size() - dna1.size(); ind++) {
         if (position == postion2) {
@@ -51,10 +51,10 @@ vector<int> search(vector<char> dna1, vector<char> header1, int q)
                 ans.push_back(ind+1);
         }
         if (ind < header1.size() - dna1.size()) {
-            postion2 = (d * (postion2 - header1[ind] * head) + header1[ind + dna1.size()]) % q;
+            postion2 = (d * (postion2 - header1[ind] * head) + header1[ind + dna1.size()]) ;
 
             if (postion2 < 0)
-                postion2 = (postion2 + q);
+                postion2 = (postion2);
         }
     }
     return ans;
