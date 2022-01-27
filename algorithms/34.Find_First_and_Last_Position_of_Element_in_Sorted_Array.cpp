@@ -46,7 +46,7 @@ int last_search(vector<int>& v, int target,int l,int r)
 
 
     }
-    return lm;
+    return lm;//
 }
 int first_search(vector<int>& v, int target,int l,int r)
 {
