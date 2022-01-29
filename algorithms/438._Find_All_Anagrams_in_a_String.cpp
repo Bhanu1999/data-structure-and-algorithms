@@ -44,7 +44,7 @@ int32_t main() {
     }
     print(v);
     int range=max(0,s.size()-p.size()+1);
-    for(int i=0;i<range;i++)
+    for(int i=0;i<range;i++)//
     {
         string tem=s.substr(i,p.size());
         vector<int> term(26,0);
