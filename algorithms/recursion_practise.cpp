@@ -24,21 +24,42 @@ void print(vector<int> a) {
     }
     cout << endl;
 }
-void sum1(int i,int n,int arr[],int sum)
+void rev(int* arr,int l,int r)
 {
-    if(i==n)
+    if(l>=r)
     {
-        cout<<sum;
+
         return;
     }
-    sum1(i+1,n,arr,sum+arr[i]);
+    swap(arr[l],arr[r]);
+    rev(arr,l+1,r-1);
     return;
+
+}
+bool palindrome(string s,int i)
+{
+    if(i>=s.size()/2)
+    {
+        return true;
+    }
+    if(s[i]==s[s.size()-1-i])
+    {
+        return palindrome(s,i+1);
+    }
+    else
+    {
+        return false;
+    }
 }
 int32_t main() {
 
 int arr[5]={1,2,3,4,5};
 int n=5;
-int sum=0;
-sum1(0,5,arr,sum);
-c
+string s="boob";
+cout<<palindrome(s,0);
+//print(arr,n);
+
+rev(arr,0,4);
+//    print(arr,n);//
+
 }
