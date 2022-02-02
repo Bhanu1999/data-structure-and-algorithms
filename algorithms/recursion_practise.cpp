@@ -51,15 +51,35 @@ bool palindrome(string s,int i)
         return false;
     }
 }
+int fib(int n)
+{
+    if(n<2)
+    {
+        return n;
+    }
+    return fib(n-1)+fib(n-2);
+}
+void printsub(int *arr,vector<int> v,int i,int n)
+{
+    if(i==n)
+    {
+        print(v);
+        return;
+    }
+    printsub(arr,v,i+1,n);
+//    v.pop_back();
+    v.push_back(arr[i]);
+
+    printsub(arr,v,i+1,n);
+    return;
+
+}
 int32_t main() {
 
-int arr[5]={1,2,3,4,5};
-int n=5;
-string s="boob";
-cout<<palindrome(s,0);
-//print(arr,n);
-
-rev(arr,0,4);
-//    print(arr,n);//
-
+int arr[3]={1,2,3};
+int n=3;
+vector<int> v;
+int i=0;
+printsub(arr,v,i,n);
+//cout<<fib(i)<<endl;
 }
