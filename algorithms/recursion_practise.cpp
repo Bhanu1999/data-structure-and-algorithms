@@ -8,7 +8,7 @@
 #include<set>
 
 using namespace std;
-
+int k=5;
 void print(int a[], int n) {
 
     for (int i = 0; i < n; i++) {
@@ -59,27 +59,46 @@ int fib(int n)
     }
     return fib(n-1)+fib(n-2);
 }
-void printsub(int *arr,vector<int> v,int i,int n)
+bool check(vector<int> a,int k)
 {
-    if(i==n)
-    {
-        print(v);
-        return;
+    int n = a.size();
+    int sum=0;
+
+    for (int i = 0; i < n; i++) {
+        sum+=a[i];
     }
-    printsub(arr,v,i+1,n);
-//    v.pop_back();
+    if(sum==k)
+    {return true;}
+    return false;
+}
+bool printsub(int *arr,vector<int> v,int i,int n,int sum)
+{
+    if(i==n || sum<=0)
+    {
+        if(sum==0){
+        print(v);
+            return true;}
+        return false;
+
+    }
+   if( printsub(arr,v,i+1,n,sum))
+   {
+       return true;
+   }
     v.push_back(arr[i]);
 
-    printsub(arr,v,i+1,n);
-    return;
+    if(printsub(arr,v,i+1,n,sum-arr[i])){
+        return true;
+    }
+    return false;
 
 }
 int32_t main() {
 
-int arr[3]={1,2,3};
-int n=3;
+int arr[5]={1,2,3,2};
+int n=4;
 vector<int> v;
 int i=0;
-printsub(arr,v,i,n);
-//cout<<fib(i)<<endl;
+printsub(arr,v,0,n,5);
+
 }
