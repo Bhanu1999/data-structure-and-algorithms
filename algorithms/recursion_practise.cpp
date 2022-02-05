@@ -71,7 +71,7 @@ bool check(vector<int> a,int k)
     {return true;}
     return false;
 }
-bool printsub(int *arr,vector<int> v,int i,int n,int sum)//
+bool printsub(int *arr,vector<int> v,int i,int n,int sum)
 {
     if(i==n || sum<=0)
     {
