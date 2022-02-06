@@ -87,7 +87,7 @@ bool printsub(int *arr,vector<int> v,int i,int n,int sum)
    }
     v.push_back(arr[i]);
 
-    if(printsub(arr,v,i+1,n,sum-arr[i])){
+    if(printsub(arr,v,i+1,n,sum-arr[i])){//
         return true;
     }
     return false;
