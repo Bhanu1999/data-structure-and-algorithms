@@ -29,7 +29,7 @@ int32_t main() {
     string s="3[a]2[bc]";
     stack<string> s1;
     for(int i=0;i<s.size();i++)
-    {
+    {//
         if(s[i]==']')
         {
             string temp="";
