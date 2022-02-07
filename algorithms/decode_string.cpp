@@ -30,7 +30,7 @@ int32_t main() {
     stack<string> s1;
     for(int i=0;i<s.size();i++)
     {
-        if(s[i]==']')//
+        if(s[i]==']')
         {
             string temp="";
             while(s1.top()!="[")
