@@ -17,7 +17,7 @@ void print(int a[], int n) {
     cout << endl;
 }
 
-void print(vector<int> a) {
+void print(vector<int> a) {//
     int n = a.size();
     for (int i = 0; i < n; i++) {
         cout << a[i] << " ";//
