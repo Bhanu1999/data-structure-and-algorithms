@@ -66,7 +66,7 @@ bool check(vector<int> a,int k)
 
     for (int i = 0; i < n; i++) {
         sum+=a[i];
-    }
+    }//
     if(sum==k)
     {return true;}
     return false;
