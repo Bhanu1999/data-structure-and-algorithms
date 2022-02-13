@@ -93,12 +93,29 @@ bool printsub(int *arr,vector<int> v,int i,int n,int sum)
     return false;
 
 }
-int32_t main() {
+vector<vector<int>> ans;
+void findper(vector<int> nums,int n,vector<int> temp)
+{
+    if(temp.size()==n)
+    {
+        ans.push_back(temp);
+        return;
+    }
+    for(int i=0;i<nums.size();i++)
+    {
+        int temp1=nums[i];
+        temp.push_back(nums[i]);
+        nums.erase(nums.begin()+i);
+        findper(nums,n,temp);
+        temp.pop_back();
+         nums.insert(nums.begin()+i,temp1);
+    }
+}
 
-int arr[5]={1,2,3,2};
-int n=4;
-vector<int> v;
-int i=0;
-printsub(arr,v,0,n,5);
+int32_t main() {
+vector<int> nums{1,2,3};
+    int n=nums.size();
+    vector<int> temp;
+    findper(nums,n,temp);
 
 }
