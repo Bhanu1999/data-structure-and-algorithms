@@ -77,7 +77,7 @@ bool printsub(int *arr,vector<int> v,int i,int n,int sum)
     {
         if(sum==0){
         print(v);
-            return true;}
+            return true;}//
         return false;
 
     }
