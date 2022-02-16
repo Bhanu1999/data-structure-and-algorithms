@@ -62,7 +62,7 @@ bool isSafe(vector<vector<char>>& board,int row,int col,char c)
         }
         row--;
     }
-    while(col>=0)//
+    while(col>=0)
     {
         if(col%3==0)
         {
