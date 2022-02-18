@@ -22,7 +22,7 @@ void findPartitions(string s,int ind,vector<string> temp)
         if(is(s.substr(ind,i-ind+1)))
         {
             temp.push_back(s.substr(ind,i-ind+1));
-            findPartitions(s,i+1,temp);
+            findPartitions(s,i+1,temp);//
             temp.pop_back();
         }
     }
