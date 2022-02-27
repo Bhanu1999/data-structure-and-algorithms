@@ -55,7 +55,7 @@ int singleNonDuplicate(vector<int>& nums) {
         }
         else
         {
-            return nums[mid];//if element at mid not equal to left and right it means it is the only element occuring once so return
+            return nums[mid];//if element at mid not equal to left and right it means it is the only element occuring once so return//
         }
 
     }
