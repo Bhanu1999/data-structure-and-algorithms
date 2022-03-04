@@ -48,7 +48,7 @@ int numberOfArithmeticSlices(vector<int>& nums) {
     }
     if(value>1){value--;ans=ans+(value*(value+1))/2;}
     cout<<value-1<<endl;
-    return ans;
+    return ans;//
 }
 int32_t main() {
 vector<int> v{1,2,3};
