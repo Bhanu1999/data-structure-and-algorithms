@@ -25,46 +25,68 @@ void print(vector<int> a) {
     cout << endl;
 }
 
-vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {
-    int time=0;
-    unordered_map<int,int> mapi;
-    map<int,vector<int>> actual_value;
-    for(int i=0;i<mapping.size();i++)
+long long calc(long long a,long long b1)
+{
+    if(b1==0) return 0;
+    long long b=a+b1-1;
+    long long ret=b*(b+1)/2;
+    ret=ret-a*(a-1)/2;
+    return ret;
+}
+long long min(long long a,long long b)
+{
+    if(a<b)
     {
-        mapi[i]=mapping[i];
+        return a;
     }
-    vector<int> result;
-    for(int i=0;i<nums.size();i++)
+    return b;
+}
+long long max(long long a,long long b)
+{
+    if(a>b)
     {
-        int temp=nums[i];
-        string s=to_string(temp);
-        string ans="";
-        for(int i=0;i<s.size();i++)
-        {
-            char c=s[i];
-            int temp1=c-'0';
-            string a=to_string(mapi[temp1]);
-            ans=ans+a;
-            time++;
+        return a;
+    }
+    return b;
+}
+long long minimalKSum(vector<int>& nums, int k) {
+    map<int,int> ele;
+    long long mini=nums[0];
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]<mini){
+            mini=nums[i];
         }
-        actual_value[stoi(ans)].push_back(nums[i]);
-
-
-    }
-    cout<<time<<endl;
-    for(auto i:actual_value)
+        ele[nums[i]]++;}
+    long long ans=0;
+    for(auto i=ele.begin();i!=ele.end();i++)
     {
-        vector<int> temp=i.second;
-        for(int j=0;j<temp.size();j++)
+        if(k==0) break;
+        if(i->first==mini)
         {
-            result.push_back(temp[j]);
+            auto iter=ele.begin();
+            int temp=max(0,min((iter->first)-1,k));
+            ans+=calc(1,temp);
+            k-=(max(0,min(i->first-1,k)));
+
+        }
+        else
+        {
+            auto it=i;
+            auto it1=it;
+            it1--;
+            ans+=calc(it1->first+1,min(k,it->first-it1->first-1));
+            k-=min(k,it->first-it1->first-1);
         }
     }
-
-    return result;}
-
+    if(k>0)
+    {
+        auto it=ele.end();
+        it--;
+        ans+=(calc(it->first+1,k));
+    }
+    return ans;
+}
 int32_t main() {
-    vector<int> v{8,9,4,0,2,1,3,5,7,6};
-    vector<int> n(30000,123456789);
-//    print(sortJumbled(v, n));
+    vector<long long > v{5,6};
+cout<<minimalKSum(v,6);
 }
