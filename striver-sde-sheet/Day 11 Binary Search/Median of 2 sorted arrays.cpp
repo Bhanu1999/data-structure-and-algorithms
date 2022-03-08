@@ -42,7 +42,7 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         {
             ans.push_back(nums2[j]);
             j++;
-        }
+        }//
 
     }
     while(i!=nums1.size())
