@@ -16,14 +16,14 @@ class ListNode {
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 };
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-    ListNode *ans=new ListNode(-1);
-    ListNode *dummy=ans;
+    ListNode *ans=new ListNode(-1);//ans linked list node
+    ListNode *dummy=ans;//pointer to be moved
     int car=0;
     int sum=0;
     while(l1!=nullptr || l2!=nullptr)
     {
-        sum=0;
-        sum+=car;
+        sum=0;//reset sum to 2 each time
+        sum+=car;//add previous carry
         if(l1)
         {
             sum+=(l1->val);
@@ -36,11 +36,11 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         }
         car=sum/10;
         sum=sum%10;
-        ListNode *temp=new ListNode(sum);
-        dummy->next=temp;
-        dummy=dummy->next;
+        ListNode *temp=new ListNode(sum);//make node which has the sum
+        dummy->next=temp;//point the newly created node to dummy list
+        dummy=dummy->next;//movie dummy pointer
     }
-    if(car>0)
+    if(car>0)//if still carry greater than 0;
     {
         ListNode *temp=new ListNode(car);
         dummy->next=temp;
