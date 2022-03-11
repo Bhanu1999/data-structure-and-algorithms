@@ -86,7 +86,34 @@ long long minimalKSum(vector<int>& nums, int k) {
     }
     return ans;
 }
+void freq()
+{
+    cout<<"enter no of elements"<<endl;
+    int n;
+    cin>>n;
+    cout<<"enter elements"<<endl;
+    int arr[100001]={0};
+    int arr1[n];
+    for(int i=0;i<n;i++)
+    {
+        int temp;
+        cin>>temp;
+        arr1[i]=temp;
+        arr[temp]++;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(arr[arr1[i]]==-1)
+        {
+            continue;
+        }
+        cout<<arr1[i]<<" "<<arr[arr1[i]]<<endl;
+        if(arr[arr1[i]]>1)
+        {
+            arr[arr1[i]]=-1;
+        }
+    }
+}
 int32_t main() {
-    vector<long long > v{5,6};
-cout<<minimalKSum(v,6);
+    freq();
 }
