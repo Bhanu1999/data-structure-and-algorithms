@@ -46,7 +46,7 @@ ListNode* rotateRight(ListNode* head, int k) {
         dup--;
         dummy=dummy->next;
     }
-    ListNode *ans=dummy;
+    ListNode *ans=dummy;//
     dummy=head;
     dup=len-k;
     len--;
