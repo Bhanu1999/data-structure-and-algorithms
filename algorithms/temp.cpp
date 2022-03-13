@@ -49,71 +49,134 @@ long long max(long long a,long long b)
     }
     return b;
 }
-long long minimalKSum(vector<int>& nums, int k) {
+vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
+    vector<int> ans;
     map<int,int> ele;
-    long long mini=nums[0];
     for(int i=0;i<nums.size();i++){
-        if(nums[i]<mini){
-            mini=nums[i];
-        }
-        ele[nums[i]]++;}
-    long long ans=0;
-    for(auto i=ele.begin();i!=ele.end();i++)
-    {
-        if(k==0) break;
-        if(i->first==mini)
+        if(nums[i]==key)
         {
-            auto iter=ele.begin();
-            int temp=max(0,min((iter->first)-1,k));
-            ans+=calc(1,temp);
-            k-=(max(0,min(i->first-1,k)));
-
-        }
-        else
-        {
-            auto it=i;
-            auto it1=it;
-            it1--;
-            ans+=calc(it1->first+1,min(k,it->first-it1->first-1));
-            k-=min(k,it->first-it1->first-1);
+            ele[i]=1;
         }
     }
-    if(k>0)
+    auto it=ele.begin();
+    auto it1=ele.begin();
+    it1++;
+    for(int i=0;i<nums.size();i++)
     {
-        auto it=ele.end();
-        it--;
-        ans+=(calc(it->first+1,k));
+        if(it!=ele.end())
+        {
+            if(it1!=ele.end())
+            {
+                int temp1=abs(it->first-i);
+                int temp2=abs(it1->first-i);
+                if(abs(it->first-i)<=abs(it1->first-i))
+                {
+                    if(abs(it->first-i)<=k)
+                    {
+                        ans.push_back(i);
+                    }
+
+                }
+                else if(abs(it->first-i)>abs(it1->first-i))
+                {
+                    if(abs(it1->first-i)<=k)
+                    {
+                        ans.push_back(i);
+                    }
+                    it=it1;
+                    it1++;
+                }
+            }
+            else
+            {
+                if(abs(it->first-i)<=k)
+                {
+                    ans.push_back(i);
+                }
+            }
+        }
+
     }
     return ans;
+}  int digArtifacts(int n, vector<vector<int>>& artifacts, vector<vector<int>>& dig) {
+    const int b=n;
+    int arr[2][2]={-1};
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            arr[i][j]=-1;
+        }
+    }
+    int counter=1;
+    for(int i=0;i<artifacts.size();i++)
+    {
+        vector<int> temp=artifacts[i];
+        for(int j=temp[0];j<=temp[2];j++)
+        {
+            for(int k=temp[1];k<=temp[3];k++)
+            {
+                arr[j][k]=counter;
+            }
+        }
+        counter++;
+    }
+    for(int i=0;i<2;i++)
+    {
+        print(arr[i],2);
+    }
+    for(int i=0;i<dig.size();i++)
+    {
+        arr[dig[i][0]][dig[i][1]]=-1;
+    }
+    unordered_map<int,int> ele;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(arr[i][j]!=-1)
+            {
+                ele[arr[i][j]]++;
+            }
+        }
+    }
+
+    return counter-ele.size()-1;
+
 }
-void freq()
-{
-    cout<<"enter no of elements"<<endl;
-    int n;
-    cin>>n;
-    cout<<"enter elements"<<endl;
-    int arr[100001]={0};
-    int arr1[n];
-    for(int i=0;i<n;i++)
+int maximumTop(vector<int>& nums, int k) {
+    map<int,vector<int>> ele;
+    for(int i=nums.size()-1;i>=0;i--)
     {
-        int temp;
-        cin>>temp;
-        arr1[i]=temp;
-        arr[temp]++;
+        ele[nums[i]].push_back(i);
     }
-    for(int i=0;i<n;i++)
+    auto it=ele.end();
+    it--;
+    while(1)
     {
-        if(arr[arr1[i]]==-1)
+        vector<int> temp=it->second;
+        for(int i=0;i<temp.size();i++)
         {
-            continue;
+            if(temp[i]>k)
+            {
+                continue;
+            }
+            else if(temp[i]<k)
+            {
+                return it->first;
+            }
         }
-        cout<<arr1[i]<<" "<<arr[arr1[i]]<<endl;
-        if(arr[arr1[i]]>1)
+
+        if(it==ele.begin())
         {
-            arr[arr1[i]]=-1;
+            break;
         }
+        it--;
+
     }
+    return -1;
 }
 int32_t main() {
-    freq();
+   vector<int> v{2};
+    cout<<maximumTop(v,1);
 }
