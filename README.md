@@ -1,2 +1,2 @@
 # data-structure-and-algorithms
-Problem 5
+Problem 6
