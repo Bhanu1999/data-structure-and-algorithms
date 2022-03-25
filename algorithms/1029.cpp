@@ -6,10 +6,9 @@
 #include<stack>
 #include<math.h>
 #include<set>
-#include <algorithm>
 
 using namespace std;
-#define int long long
+
 void print(int a[], int n) {
 
     for (int i = 0; i < n; i++) {
@@ -25,13 +24,27 @@ void print(vector<int> a) {
     }
     cout << endl;
 }
-
-
+static bool compare(vector<int> a,vector<int> b)
+{
+    return a[1]-a[0]>b[1]-b[0];
+}
+int twoCitySchedCost(vector<vector<int>>& costs) {
+    int ans=0;
+    sort(costs.begin(),costs.end(),compare);
+    for(int i=0;i<costs.size();i++)
+    {
+        if(i<costs.size()/2)
+        {
+            ans+=costs[i][0];
+        }
+        else
+        {
+            ans+=costs[i][1];
+        }
+    }
+    return ans;
+}
 int32_t main() {
-   vector<vector<int>> v{{3,2},{1,2},{2,4}};
-   sort(v.begin(),v.end());
-   print(v[0]);
-   print(v[1]);
-   print(v[2]);
+
 
 }
