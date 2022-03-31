@@ -179,8 +179,29 @@ bool search(vector<int>& nums, int target) {
     return helper(nums,target,0,nums.size()-1);
 }
 int32_t main() {
-   vector<int> v{2,5,6,0,0,1,2};
-   return search(v,3);
+    char s[100]="Umesh Chandra U";//
+   char *p=s;
+   int arr[27]={0};
+   while(*p!='\0')
+   {
+
+      if(*p<97)
+      {
+          arr[(*p)-'A']++;
+      }
+      else{
+       arr[(*p)-'a']++;}
+       p++;
+   }
+   for(int i=0;i<27;i++)
+   {
+       if(arr[i]>0)
+       {
+           char temp='a'+i;
+           cout<<temp<<" "<<arr[i]<<endl;
+       }
+   }
+
 
 }
 
