@@ -198,7 +198,7 @@ int32_t main() {
        if(arr[i]>0)
        {
            char temp='a'+i;
-           cout<<temp<<" "<<arr[i]<<endl;
+           cout<<temp<<" "<<arr[i]<<endl;//
        }
    }
 
