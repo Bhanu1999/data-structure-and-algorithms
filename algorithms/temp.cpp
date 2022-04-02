@@ -10,6 +10,8 @@
 
 using namespace std;
 #define int long long
+ int ans=0;
+
 void print(int a[], int n) {
 
     for (int i = 0; i < n; i++) {
@@ -140,7 +142,6 @@ void temp(vector<int> v)
 
 
 }
-bool ans=false;
 bool helper(vector<int>& nums, int target,int low,int high)
 {
     int mid=low+high;
@@ -178,29 +179,74 @@ bool helper(vector<int>& nums, int target,int low,int high)
 bool search(vector<int>& nums, int target) {
     return helper(nums,target,0,nums.size()-1);
 }
-int32_t main() {
-    char s[100]="Umesh Chandra U";//
-   char *p=s;
-   int arr[27]={0};
-   while(*p!='\0')
-   {
+void printSubsequence(string input, string output,int temp)
+{if(input.empty() && temp!=3)
+    {
+        return;
+    }
+    if (input.empty()|| temp==3) {
+        if(output=="101"||output=="010")
+            ans++;
+        return;}
+    printSubsequence(input.substr(1), output,temp);
+    if(output.empty())
+    {printSubsequence(input.substr(1), output + input[0],temp+1);
+    }
+    if(output.size()>0){
+        string t=input.substr(1);
+        if(output[output.size()-1]!=input[0]){
+    printSubsequence(t, output + input[0],temp+1);}}
+    return;
+}
+bool validPalindrome(string s) {
+    int c=1;
+    int i=0;
+    int j=s.size()-1;
+    while(i<j)
+    {
+        if(s[i]==s[j])
+        {
+            i++;
+            j--;
+        }
+        else
+        {
+            if(c>0)
+            {
+                c--;
+                if(s[i]==s[j-1] && s[i+1]==s[j])
+                {
+                    j--;
+                    i++;
+                }
+                else if(s[i+1]==s[j])
+                {
+                    i++;
+                }
+                else {
+                    j++;
+                }
 
-      if(*p<97)
-      {
-          arr[(*p)-'A']++;
-      }
-      else{
-       arr[(*p)-'a']++;}
-       p++;
-   }
-   for(int i=0;i<27;i++)
-   {
-       if(arr[i]>0)
-       {
-           char temp='a'+i;
-           cout<<temp<<" "<<arr[i]<<endl;//
-       }
-   }
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    if(i>=j)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+int32_t main() {
+    string s="ebcbbececabbacecbbcbe";
+    cout<<validPalindrome(s);
+
 
 
 }
