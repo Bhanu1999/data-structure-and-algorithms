@@ -38,7 +38,7 @@ bool is_valid(string s,int i,int j)
     }
     return true;
 }
-bool validPalindrome(string s) {//
+bool validPalindrome(string s) {
     int i=0;
     int j=s.size()-1;
     while(i<j)
