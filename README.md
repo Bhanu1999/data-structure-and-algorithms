@@ -1,2 +1,3 @@
-# data-structure-and-algorithms
-Problem 8
+#REPO FOR TRACKING DSA PROBLEM SOLVING
+# data-structure-and-algorithms problems solution
+
