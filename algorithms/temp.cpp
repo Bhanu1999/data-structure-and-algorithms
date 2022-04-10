@@ -243,9 +243,108 @@ bool validPalindrome(string s) {
         return false;
     }
 }
+int largestInteger(int nums) {
+    int temp=nums;
+    vector<int> o,e;
+    while(nums>0)
+    {
+        if((nums%10)%2==0)
+        {
+            e.push_back(nums%10);
+        }
+        else
+        {
+            o.push_back(nums%10);
+        }
+        nums/=10;
+    }
+    string s="";
+    nums=temp;
+    while(nums>0)
+    {
+        s=(to_string(nums%10))+s;
+        nums/=10;
+    }
+
+
+    sort(o.begin(),o.end());
+    sort(e.begin(),e.end());
+    int i=0;
+    while(i<s.size())
+    {
+        if((s[i]-'0')%2==0)
+        {
+            int a=e[e.size()-1];
+            s[i]=((a+'0'));
+            e.pop_back();
+        }
+        else
+        {
+            int a=o[o.size()-1];
+            s[i]=((a+'0'));
+            o.pop_back();
+
+        }
+    }
+    cout<<s;
+    return 0;
+}
+int maximumProduct(vector<int>& nums, int k) {
+    int mod=1000000007;
+
+    map<int,int> ele;
+    for(int i=0;i<nums.size();i++)
+    {
+        ele[nums[i]]++;
+    }
+
+    while(k>0)
+    {
+        auto it=ele.begin();
+        if(ele.size()==1)
+        {
+            break;
+        }
+        int a=it->first;
+        it->second--;
+        auto temp=it;
+        temp++;
+        if(it->second==0)
+        {
+            ele.erase(it);
+        }
+        int b=temp->first;
+        ele[min(b-a,k)]++;
+        k-=(min(b-a,k));
+
+    }
+    vector<int> temp(nums.size(),ele.begin()->first);
+    nums=temp;
+    if(k>0)
+    {
+        int j=0;
+        while(k>0 && j<nums.size())
+        {
+            nums[j]=nums[j]+1;
+            k--;
+            if(j==nums.size()-1)
+            {
+                j=0;
+            }
+        }
+    }
+    int ans=nums[0];
+    for(int i=1;i<nums.size();i++){
+        ans*=nums[i];
+        ans%=mod;
+    }
+    cout<<ans;
+    return ans;
+
+}
 int32_t main() {
-    string s="ebcbbececabbacecbbcbe";
-    cout<<validPalindrome(s);
+    vector<int> v{6,3,3,2};
+   cout<<maximumProduct(v,2);
 
 
 
