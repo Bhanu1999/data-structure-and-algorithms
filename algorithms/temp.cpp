@@ -291,7 +291,6 @@ int largestInteger(int nums) {
 }
 int maximumProduct(vector<int>& nums, int k) {
     int mod=1000000007;
-
     map<int,int> ele;
     for(int i=0;i<nums.size();i++)
     {
@@ -314,11 +313,21 @@ int maximumProduct(vector<int>& nums, int k) {
             ele.erase(it);
         }
         int b=temp->first;
-        ele[min(b-a,k)]++;
+        ele[a+min(b-a,k)]++;
         k-=(min(b-a,k));
 
     }
-    vector<int> temp(nums.size(),ele.begin()->first);
+    vector<int> temp(nums.size());
+    for(int i=0;i<nums.size();i++)
+    {
+        auto it1=ele.begin();
+        temp[i]=it1->first;
+        it1->second--;
+        if(it1->second==0)
+        {
+            ele.erase(it1);
+        }
+    }
     nums=temp;
     if(k>0)
     {
@@ -327,24 +336,27 @@ int maximumProduct(vector<int>& nums, int k) {
         {
             nums[j]=nums[j]+1;
             k--;
-            if(j==nums.size()-1)
+            j++;
+            if(j==nums.size())
             {
                 j=0;
             }
         }
     }
     int ans=nums[0];
+    cout<<ans<<endl;
     for(int i=1;i<nums.size();i++){
+        cout<<nums[i]<<endl;
         ans*=nums[i];
         ans%=mod;
     }
-    cout<<ans;
+//    cout<<ans;
     return ans;
 
 }
 int32_t main() {
-    vector<int> v{6,3,3,2};
-   cout<<maximumProduct(v,2);
+    vector<int> v{24,5,64,53,26,38};
+   cout<<maximumProduct(v,54);
 
 
 
