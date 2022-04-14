@@ -49,7 +49,7 @@ public int[][] generateMatrix(int n) {
         for(int i=ce;i>=cs;i--)
         {
             arr[re][i]=start;
-            start++;
+            start++;//easy leetcode question
         }
         re--;
         for(int i=re;i>=rs;i--)
