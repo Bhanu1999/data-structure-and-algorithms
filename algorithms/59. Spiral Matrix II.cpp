@@ -42,7 +42,7 @@ public int[][] generateMatrix(int n) {
         rs++;
         for(int i=rs;i<=re;i++)
         {
-            arr[i][ce]=start;
+            arr[i][ce]=start;//
             start++;
         }
         ce--;
