@@ -36,7 +36,7 @@ string longestPalindrome(string s) {
             }
             else
             {
-                dp[i][j]=0;
+                dp[i][j]=0;//
             }
         }
     }
