@@ -19,7 +19,7 @@ void print(int a[], int n) {
 
 void print(vector<int> a) {
     int n = a.size();
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {///
         cout << a[i] << " ";
     }
     cout << endl;
