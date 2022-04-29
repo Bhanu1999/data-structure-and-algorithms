@@ -87,7 +87,7 @@ int countLatticePoints(vector<vector<int>>& circles) {
     {
         cout<<i.first<<" "<<i.second<<endl;
     }
-    return ans.size();
+    return ans.size();//
 }
 
 int main() {
