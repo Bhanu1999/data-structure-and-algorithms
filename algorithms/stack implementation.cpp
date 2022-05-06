@@ -47,7 +47,7 @@ int pop() {
     int temp=q1.front();
     q1.pop();
     return temp;
-}
+}//
 
 int top() {
     return q1.front();
