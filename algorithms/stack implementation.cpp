@@ -46,7 +46,7 @@ void push(int x) {
 int pop() {
     int temp=q1.front();
     q1.pop();
-    return temp;
+    return temp;//
 }//
 
 int top() {
