@@ -24,7 +24,7 @@ void print(vector<int> a) {
     }
     cout << endl;
 }
-int countVowelStrings(int n) {
+int countVowelStrings(int n) {//
     vector<int> ans(5,1);
     for(int i=1;i<n;i++)
     {
