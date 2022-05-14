@@ -34,7 +34,7 @@ int countVowelStrings(int n) {//
         }
     }
     int fi=0;
-    for(int i=0;i<ans.size();i++)//
+    for(int i=0;i<ans.size();i++)
     {
         fi+=ans[i];
     }
