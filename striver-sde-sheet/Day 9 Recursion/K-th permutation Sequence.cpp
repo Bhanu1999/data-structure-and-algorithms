@@ -29,7 +29,7 @@ string getPermutation(int n, int k) {
 
         fact=fact/nums.size();/*reduce that factorial because initially we have 3! in our hand while searching for sub groups of 6 then we have 2! while searching in groups and so on*/
     }
-    return ans;
+    return ans;//
 
 }
 int32_t main() {
