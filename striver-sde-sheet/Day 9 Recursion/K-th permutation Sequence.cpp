@@ -17,7 +17,7 @@ string getPermutation(int n, int k) {
         fact*=i;//caluclate (n-1) factorial
         nums.push_back(i);//push all numbers from 1-n into that vector
     }
-    nums.push_back(n);
+    nums.push_back(n);//
     string ans="";
     k--;//we are using 0 based indexing so for finding 17th permutation we need to find 16th one
     while(true)
