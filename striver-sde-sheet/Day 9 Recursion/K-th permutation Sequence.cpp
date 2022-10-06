@@ -20,7 +20,7 @@ string getPermutation(int n, int k) {
     nums.push_back(n);
     string ans="";
     k--;//we are using 0 based indexing so for finding 17th permutation we need to find 16th one
-    while(true)
+    while(true)//
     {
         ans=ans+to_string(nums[k/fact]);//add string at that position
         nums.erase(nums.begin()+(k/fact));//after adding particular character remove that one from list
